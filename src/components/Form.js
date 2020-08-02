@@ -13,6 +13,7 @@ import {
   Button,
   ColorOutput
 } from '../styles/FormStyles';
+import { SubHeading } from '../styles/AppStyles';
 
 const Form = () => {
   const handleSubmit = (e) => {
@@ -72,6 +73,7 @@ const Form = () => {
 
   return (
     <FormWrapper>
+      <SubHeading>Your details</SubHeading>
       <StyledForm onSubmit={handleSubmit}>
         <Field>
           {errors.name && <ErrorMsg role='alert'>{errors.name}</ErrorMsg>}

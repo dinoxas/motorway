@@ -18,7 +18,22 @@ export const Placeholder = styled.div`
   top: 0;
   right: 0;
   bottom: 0;
+  height: 100%;
+  width: 100%;
   animation: ${loadingAnimation} 1.5s infinite;
+  z-index: 2;
+`;
+
+export const CarImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  backface-visibility: hidden;
+  position: absolute;
+  z-index: 0;
+  display: block;
+  transition: transform 0.4s, filter 1s ease-in-out;
+  filter: grayscale(100%) brightness(65%);
 `;
 
 export const Button = styled.button`
@@ -57,7 +72,7 @@ export const Content = styled.div`
   height: 100%;
   box-sizing: border-box;
   &:hover {
-    img {
+    ${CarImage} {
       filter: grayscale(0) brightness(125%);
       transform: scale(1.15);
     }
@@ -85,11 +100,12 @@ export const UserWrapper = styled.div`
   display: flex;
 `;
 
-export const Avatar = styled.div`
+export const Avatar = styled.img`
   width: 42px;
   height: 42px;
-  background-position: center center;
-  background-size: cover;
+  object-fit: cover;
+  // background-position: center center;
+  // background-size: cover;
   border-radius: 50%;
   border: 1px solid #2d2d2b;
   z-index: 2;
@@ -98,18 +114,6 @@ export const Avatar = styled.div`
 export const UserText = styled.div`
   align-self: center;
   margin-left: 10px;
-`;
-
-export const CarImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  backface-visibility: hidden;
-  position: absolute;
-  z-index: 0;
-  display: block;
-  transition: transform 0.4s, filter 1s ease-in-out;
-  filter: grayscale(100%) brightness(65%);
 `;
 
 export const ModalContent = styled.p`

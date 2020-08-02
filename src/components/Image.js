@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import ProgressiveImage from 'react-progressive-graceful-image';
-import { Modal } from 'react-responsive-modal';
+import LazyLoad from 'react-lazyload';
 import {
   Button,
   Content,
@@ -12,6 +11,7 @@ import {
   ModalContent,
   Placeholder
 } from '../styles/ImageStyles';
+import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
 import '../Modal.css';
 
@@ -39,9 +39,12 @@ const Image = ({ img }) => {
       <Content>
         <UserInfo>
           <UserWrapper>
-            <Avatar
-              style={{ backgroundImage: `url(${profile_image}.webp)` }}
-            ></Avatar>{' '}
+            <picture>
+              <source srcSet={`${profile_image}.webp`} type='image/webp' />
+              <source srcSet={`${profile_image}.jpg`} type='image/jpeg' />
+              <Avatar src={`${profile_image}.jpg`} alt='' />
+            </picture>
+
             <UserText>@{username}</UserText>
           </UserWrapper>
 
@@ -52,15 +55,13 @@ const Image = ({ img }) => {
             {likes}
           </UserText>
         </UserInfo>
-        <ProgressiveImage src={`${url}.webp`} placeholder=''>
-          {(src, loading) => {
-            return loading ? (
-              <Placeholder />
-            ) : (
-              <CarImage src={src} alt={alt_description} />
-            );
-          }}
-        </ProgressiveImage>
+        <LazyLoad placeholder={<Placeholder />}>
+          <picture>
+            <source srcSet={`${url}.webp`} type='image/webp' />
+            <source srcSet={`${url}.jpg`} type='image/jpeg' />
+            <CarImage src={`${url}.jpg`} alt={alt_description} />
+          </picture>
+        </LazyLoad>
 
         <Button onClick={onOpenModal}>View image</Button>
       </Content>
@@ -73,7 +74,11 @@ const Image = ({ img }) => {
         }}
         center
       >
-        <img src={`${url}.webp`} alt={alt_description} />
+        <picture>
+          <source srcSet={`${url}.webp`} type='image/webp' />
+          <source srcSet={`${url}.jpg`} type='image/jpeg' />
+          <img src={`${url}.jpg`} alt={alt_description} />
+        </picture>
 
         {description && <ModalContent>{description}</ModalContent>}
       </Modal>

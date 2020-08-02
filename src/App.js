@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Form from './components/Form';
 import Image from './components/Image';
-import { Grid, GridTile, AppLayout } from './styles/AppStyles';
+import { Grid, GridTile, AppLayout, Heading, Intro } from './styles/AppStyles';
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 
@@ -23,6 +23,11 @@ const App = () => {
     <>
       <AppHeader />
       <AppLayout>
+        <Heading>Cars gallery</Heading>
+        <Intro>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+          vestibulum odio enim, id tempor velit aliquet quis.
+        </Intro>
         <Grid>
           {images &&
             images.map((img) => (

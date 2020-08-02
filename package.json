@@ -10,6 +10,7 @@
     "nodemon": "^2.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-lazyload": "^3.0.0",
     "react-progressive-graceful-image": "^0.6.11",
     "react-responsive-modal": "^5.0.2",
     "react-scripts": "3.4.1",

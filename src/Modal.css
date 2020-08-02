@@ -1,3 +1,8 @@
 .customModal {
   padding: 0;
 }
+
+.lazyload-wrapper {
+  height: 100%;
+  width: 100%;
+}
