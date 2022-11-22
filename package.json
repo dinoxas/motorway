@@ -13,7 +13,7 @@
     "react-lazyload": "^3.0.0",
     "react-progressive-graceful-image": "^0.6.11",
     "react-responsive-modal": "^5.0.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "styled-components": "^5.1.1"
   },
   "proxy": "http://localhost:5000",
